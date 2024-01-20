@@ -1,5 +1,5 @@
 const helloNPM = () => {
-	return 'hello NPM'
+	return 'hello NPM finally!'
 }
 
 export { helloNPM }
