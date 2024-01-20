@@ -1,0 +1,31 @@
+{
+	"name": "@lagaritaverde/ui-library",
+	"version": "1.0.2",
+	"description": "La Garita Verde UI Library",
+	"main": "./dist/index.js",
+	"scripts": {
+		"test": "test",
+		"build": "tsc",
+		"prepublishOnly": "npm run build"
+	},
+	"keywords": [
+		"ui",
+		"ui-library",
+		"library"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lagaritaverde/ui-library.git"
+	},
+	"author": "La Garita Verde (https://lagaritaverde.com)",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/lagaritaverde/ui-library/issues"
+	},
+	"homepage": "https://github.com/lagaritaverde/ui-library#readme",
+	"devDependencies": {
+		"@types/node": "^20.11.5",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.3.3"
+	}
+}
