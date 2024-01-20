@@ -30,7 +30,7 @@ jobs:
       # Bump the version & push (if you're not doing that elsewhere)
       - name: Bump version & push
         run: |
-          git config  user.name 'octapf'
+          git config  user.name 'lagaritaverde'
           git config  user.email 'frangipani.octavio@gmail.com'
 
           # Update the version in package.json, and commit & tag the change:
