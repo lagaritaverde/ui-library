@@ -15,15 +15,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Check CHANGELOG.md has been updated
+        run: ./scripts/check_changelog.sh /CHANGELOG.md
+        shell: bash
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
-
-      - name: Check CHANGELOG.md has been updated
-        run: ./scripts/check_changelog.sh ./CHANGELOG.md
-        shell: bash
 
       - name: Install dependencies
         run: npm ci
