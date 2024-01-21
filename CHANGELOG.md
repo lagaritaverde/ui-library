@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.5] - 2024-01-21
+
+### Add
+
+- Add helloFrom function
+
 ## [1.0.4] - 2024-01-21
 
 ### Add
