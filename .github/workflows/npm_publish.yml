@@ -30,8 +30,8 @@ jobs:
       # Bump the version & push (if you're not doing that elsewhere)
       - name: Bump version & push
         run: |
-          git config  user.name 'lagaritaverde'
-          git config  user.email 'frangipani.octavio@gmail.com'
+          git config  user.name 'Automated publish'
+          git config  user.email '62032399+octapf@users.noreply.github.com'
 
           # Update the version in package.json, and commit & tag the change:
           npm version patch # YMMV - you might want the semver level as a workflow input
