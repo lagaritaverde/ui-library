@@ -54,6 +54,9 @@ web_modules/
 # Optional eslint cache
 .eslintcache
 
+# Storybook
+storybook-static
+
 # Optional stylelint cache
 .stylelintcache
 
