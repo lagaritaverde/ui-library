@@ -14,10 +14,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
-      - name: Check CHANGELOG.md has been updated
-        run: ./scripts/check_changelog.sh /CHANGELOG.md
-        shell: bash
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -27,6 +25,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Run tests
+        run: npm test
 
       - name: Build ui package
         run: npm run build
