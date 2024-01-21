@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2024-01-21
+
+### Add
+
+- Add dev-dependencies
+
 ## [1.0.10] - 2024-01-21
 
 ### Fix
