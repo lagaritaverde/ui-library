@@ -1,5 +1,1 @@
-const helloFrom = () => {
-	return 'hello from La Garita Verde!'
-}
-
-export { helloFrom }
+export const helloFrom = () => 'hello from La Garita Verde!'

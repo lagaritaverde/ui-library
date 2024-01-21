@@ -1,4 +1,6 @@
-export { helloNPM } from './helloNPM'
-export { randomPhrase } from './randomPhrase'
-export { helloFrom } from './helloFrom'
-export { helloTo } from './helloTo'
+import { helloFrom } from './helloFrom'
+import { helloNPM } from './helloNPM'
+import { helloTo } from './helloTo'
+import { randomPhrase } from './randomPhrase'
+
+export { helloFrom, helloNPM, helloTo, randomPhrase }

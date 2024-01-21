@@ -1,5 +1,1 @@
-const helloTo = () => {
-	return 'hello to you!!'
-}
-
-export { helloTo }
+export const helloTo = () => 'hello to you!!'

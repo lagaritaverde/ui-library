@@ -1,5 +1,1 @@
-const helloNPM = () => {
-	return 'hello NPM finally!'
-}
-
-export { helloNPM }
+export const helloNPM = () => 'hello NPM finally!'

@@ -41,6 +41,8 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+dist
+dist-ssr
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
@@ -81,6 +83,7 @@ storybook-static
 .env.test.local
 .env.production.local
 .env.local
+*.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -130,3 +133,14 @@ out
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
