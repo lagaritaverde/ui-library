@@ -22,7 +22,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Check CHANGELOG.md has been updated
-        run: ./scripts/check_changelog.sh CHANGELOG.md
+        run: ./scripts/check_changelog.sh /CHANGELOG.md
         shell: bash
 
       - name: Install dependencies
