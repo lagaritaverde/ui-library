@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.4] - 2024-01-21
+
+### Add
+
+- Add two more functions
+
 ## [1.0.3] - 2024-01-20
 
 ### Add
