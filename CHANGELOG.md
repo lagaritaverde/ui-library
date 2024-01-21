@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.2] - 2024-01-21
+
+### Downgrade
+
+- Downgrade and add configuration files
+
 ## [1.1.1] - 2024-01-21
 
 ### Fix

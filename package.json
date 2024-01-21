@@ -1,16 +1,17 @@
 {
   "name": "@lagaritaverde/ui-library",
-  "version": "1.1.1",
+  "version": "0.1.2",
   "description": "La Garita Verde UI Library",
   "main": "./dist/index.js",
   "type": "module",
+  "module": "./dist/index.es.js",
   "scripts": {
     "test": "vitest",
     "coverage": "vitest --coverage",
     "eslint": "npx eslint src --max-warnings 0",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build": "tsc",
+    "build": "rollup -c --bundleConfigAsCjs",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
