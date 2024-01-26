@@ -135,6 +135,10 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
+      - uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
       - name: Publish package to NPM
         if: ${{ github.event_name == 'push'}}
         run: npm publish --access public
