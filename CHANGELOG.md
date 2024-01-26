@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.2] - 2024-01-27
+
+### Fix
+
+- Fix deploy gh-pages
+
 ## [0.2.1] - 2024-01-26
 
 ### Fix
