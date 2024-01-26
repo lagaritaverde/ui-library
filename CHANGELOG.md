@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0] - 2024-01-26
+
+### Add
+
+- Add deploy gh-pages
+
+## [0.1.11] - 2024-01-26
+
+### Add
+
+- Add parallelize CI/CD
+
 ## [0.1.10] - 2024-01-26
 
 ### Add

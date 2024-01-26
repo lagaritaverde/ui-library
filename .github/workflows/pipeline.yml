@@ -1,4 +1,4 @@
-name: Publish to NPM
+name: Test, Build, Deploy
 
 on:
   push:
@@ -17,6 +17,13 @@ jobs:
     steps:
       - name: Cancel Previous Redundant Builds
         uses: styfle/cancel-workflow-action@0.9.1
+
+  grab_version:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Grab version
+        id: version
+        run: echo "::set-output name=version::$(jq -r '.version' package.json)"
 
   lint:
     runs-on: ubuntu-22.04
