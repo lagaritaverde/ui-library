@@ -12,52 +12,124 @@ on:
     types: [created]
 
 jobs:
-  build_publish:
+  avoid_reduncy:
     runs-on: ubuntu-22.04
-
     steps:
       - name: Cancel Previous Redundant Builds
         uses: styfle/cancel-workflow-action@0.9.1
 
+  lint:
+    runs-on: ubuntu-22.04
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
-
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
-
       - name: lint
         run: npx eslint src --max-warnings 0
 
-      - name: test
-        run: npm run test -- --coverage
-
-      - name: build storybook
-        run: npm run build-storybook
-
-      - name: Build ui package
-        run: npm run build
-
+  sonar_scan:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
-
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+      - name: Build ui package
+        run: npm run build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+  test:
+    needs: [lint, sonar_scan, build]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+      - uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+      - name: test
+        run: npm run test -- --coverage
+
+  build_storybook:
+    needs: [lint, sonar_scan, build]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+      - uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+      - name: build storybook
+        run: npm run build-storybook
+
+  publish_NPM:
+    needs: [test, build_storybook]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Publish package to NPM
         if: ${{ github.event_name == 'push'}}
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN}}
-
-      - name: Grab version
-        id: version
-        run: echo "::set-output name=version::$(jq -r '.version' /package.json)"
