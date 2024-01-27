@@ -14,10 +14,7 @@
   "include": ["./src/index.ts"],
   "exclude": [
     "node_modules",
-    "dist",
-    "build",
     "public",
-    "scripts",
     "**/*.stories.*",
     "**/.storybook/**/*",
     "**/src/__tests__/**/*",
