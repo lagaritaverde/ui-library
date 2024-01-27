@@ -26,9 +26,9 @@ const fadeOut = css`
     }
   }
 `
-type TModalContentProps = TAnimation & TFlexBox;
+type TModalContentProps = TAnimation & TFlexBox
 
-const ModalWrapper = styled(FlexBox).withConfig<TModalContentProps>({
+const ModalWrapper = styled(FlexBox).withConfig({
   shouldForwardProp: (prop) => !['shouldAnimate'].includes(prop),
 })`
   background-color: rgba(0, 0, 0, 0.68);
@@ -78,7 +78,7 @@ type TAnimation = {
   shouldAnimate: boolean
 }
 
-const ModalContent = styled(FlexBox).withConfig<TModalContentProps>({
+const ModalContent = styled(FlexBox).withConfig({
   shouldForwardProp: (prop) => !['shouldAnimate'].includes(prop),
 })`
   background-color: ${colors.white};

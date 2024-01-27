@@ -2,7 +2,7 @@ import React, { InputHTMLAttributes } from 'react'
 import styled from 'styled-components'
 import { colors, dimensions, font } from '../../styles'
 
-const InputStyled = styled.input.withConfig<TInput>({
+const InputStyled = styled.input.withConfig({
   shouldForwardProp: (prop) => !['error', 'success', 'warning'].includes(prop),
 })`
   width: 100%;
@@ -23,7 +23,7 @@ const InputStyled = styled.input.withConfig<TInput>({
   }
 `
 export type TInput = InputHTMLAttributes<HTMLInputElement> & {
-  error?: boolean | string
+  onError?: boolean | string
   success?: boolean
   warning?: boolean
   type?: 'text' | 'password' | 'email'
@@ -32,7 +32,7 @@ export type TInput = InputHTMLAttributes<HTMLInputElement> & {
 const Input = React.forwardRef<HTMLInputElement, TInput>(
   (
     {
-      error = false,
+      onError = false,
       warning = false,
       success = false,
       type = 'text',
@@ -43,7 +43,7 @@ const Input = React.forwardRef<HTMLInputElement, TInput>(
   ) => (
     <InputStyled
       type={type}
-      error={!!error}
+      error={onError ? 'error' : ''}
       success={success}
       warning={warning}
       onChange={onChange}
