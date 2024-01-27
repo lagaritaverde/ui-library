@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { FlexBox, colors, device, dimensions } from '../../styles'
 import { Icon, Title } from '../atoms'
-import { TFlexBox } from '../../styles/FlexBox'
+// import { TFlexBox } from '../../styles/FlexBox'
 
 const fadeIn = css`
   animation: fadeIn 0.5s forwards;
@@ -26,7 +26,7 @@ const fadeOut = css`
     }
   }
 `
-type TModalContentProps = TAnimation & TFlexBox
+// type TModalContentProps = TAnimation & TFlexBox
 
 const ModalWrapper = styled(FlexBox).withConfig({
   shouldForwardProp: (prop) => !['shouldAnimate'].includes(prop),
@@ -74,9 +74,9 @@ const StyledIcon = styled(Icon)`
   scale: 1.5;
 `
 
-type TAnimation = {
-  shouldAnimate: boolean
-}
+// type TAnimation = {
+//   shouldAnimate: boolean
+// }
 
 const ModalContent = styled(FlexBox).withConfig({
   shouldForwardProp: (prop) => !['shouldAnimate'].includes(prop),
