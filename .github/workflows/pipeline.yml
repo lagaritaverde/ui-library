@@ -188,7 +188,7 @@ jobs:
           node-version: 18
           cache: 'npm'
       - name: Install dependencies
-        run: npm install
+        run: npm ci --legacy-peer-deps
       - uses: actions/download-artifact@v2
         with:
           name: storybook-static
@@ -199,7 +199,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload dist repository
-          path: './dist'
+          path: './storybook-static'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
