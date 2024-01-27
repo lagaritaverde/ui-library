@@ -10,26 +10,26 @@ describe('Spinner', () => {
     big: 133,
   }
 
-  // it('renders correctly by default', () => {
-  //   render(<Spinner data-testid="spinner" />)
+  it('renders correctly by default', () => {
+    render(<Spinner data-testid="spinner" />)
 
-  //   const spinner = screen.getByTestId('spinner')
-  //   expect(spinner).toBeInTheDocument()
-  //   expect(spinner).toHaveStyle({ height: `${sizes.medium}px` })
-  //   expect(spinner).toHaveStyle({ width: `${sizes.medium}px` })
-  //   expect(spinner).toHaveStyle({
-  //     border: `${sizes.medium / 6}px solid ${colors.outlineHover}`,
-  //   })
-  //   expect(spinner).toHaveStyle({
-  //     'border-top-color': `${colors.primary}`,
-  //   })
-  //   expect(spinner).toHaveStyle({
-  //     'border-right-color': `${colors.primary}`,
-  //   })
-  //   expect(spinner).toHaveStyle({
-  //     'border-radius': '50%',
-  //   })
-  // })
+    const spinner = screen.getByTestId('spinner')
+    expect(spinner).toBeInTheDocument()
+    expect(spinner).toHaveStyle({ height: `${sizes.medium}px` })
+    expect(spinner).toHaveStyle({ width: `${sizes.medium}px` })
+    expect(spinner).toHaveStyle({
+      border: `${sizes.medium / 6}px solid ${colors.outlineHover}`,
+    })
+    expect(spinner).toHaveStyle({
+      'border-top-color': `${colors.primary}`,
+    })
+    expect(spinner).toHaveStyle({
+      'border-right-color': `${colors.primary}`,
+    })
+    expect(spinner).toHaveStyle({
+      'border-radius': '50%',
+    })
+  })
 
   it('renders correctly xsmall', () => {
     render(<Spinner size="xsmall" data-testid="spinner" />)
