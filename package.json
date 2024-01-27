@@ -11,7 +11,7 @@
     "eslint": "npx eslint src --max-warnings 0",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build": "rollup -c --bundleConfigAsCjs",
+    "build": "tsc",
     "prepublishOnly": "npm run build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
